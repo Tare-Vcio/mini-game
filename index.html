@@ -32,17 +32,19 @@
           <img src="./images/monster-01.png" alt="" class="img-monster">
         </div>
       </div>
-      <div class="controls">
+      <div class="controls" >
         <button v-if="!isFighting" @click="userAttack" v-show="handlebtn">Attack</button>
-        <button @click="userBuff" v-show="handlebtn">Buff</button>
-        <button @click="specialAttackMonster" v-show="handlebtn">Special attack</button>
-        <button @click="surrender" v-show="handlebtn">Surrender</button>
+        <button v-if="!isFighting" :disabled="canUseBuff" @click="userBuff" v-show="handlebtn">Buff</button>
+        <button v-if="!isFighting" :disabled="canUseSpecialAttack" @click="specialAttackMonster" v-show="handlebtn">Special attack</button>
+        <button v-if="!isFighting" @click="surrender" v-show="handlebtn">Surrender</button>
       </div>
       <div class="end-game" v-if="headleEnd1">
         <img src="./images/winner-01.png" alt="">
+        <button @click="startNewGame">Start New Game</button>
       </div>
-      <div class="end-game2" v-if="headleEnd2">
+      <div class="end-game2" v-else-if="headleEnd2">
         <img src="./images/loser-01.png" alt="">
+        <button @click="startNewGame">Start New Game</button>
       </div>
     </div>
   </div>

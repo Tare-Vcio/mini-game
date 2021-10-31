@@ -3,7 +3,7 @@
 }
 
 html {
-  font-family: 'Jost', sans-serif;
+  font-family: "Jost", sans-serif;
 }
 
 body {
@@ -16,7 +16,6 @@ header {
   background-color: #880017;
   color: white;
   text-align: center;
-
 }
 
 section {
@@ -24,66 +23,66 @@ section {
   max-width: 40rem;
   margin: auto;
 }
-.bg-image{
-   background-image: url(https://cdn5.f-cdn.com/contestentries/1247677/21891770/5a786ab701b3d_thumb900.jpg);
-   height: 700px;
-   position: relative;
-  }
+.bg-image {
+  background-image: url(https://cdn5.f-cdn.com/contestentries/1247677/21891770/5a786ab701b3d_thumb900.jpg);
+  height: 700px;
+  position: relative;
+}
 .container {
   padding-top: 100px;
   display: flex;
   justify-content: space-around;
-
 }
 
 .item {
   width: 300px;
   text-align: center;
 }
-.damge{
- position: absolute;
- opacity: 0;
- top: 19%;
- right: 24%;
- font-size: 25px;
- color: #ff1919e0;
- font-weight: 600;
+.damge {
+  position: absolute;
+  opacity: 0;
+  top: 19%;
+  right: 24%;
+  font-size: 25px;
+  color: #ff1919e0;
+  font-weight: 600;
 }
-.damgeuser{
- position: absolute;
- opacity: 0;
- top: 19%;
- left: 24%;
- font-size: 25px;
- color: #ff1919e0;
- font-weight: 600;
+.damgeuser {
+  position: absolute;
+  opacity: 0;
+  top: 19%;
+  left: 24%;
+  font-size: 25px;
+  color: #ff1919e0;
+  font-weight: 600;
 }
 @keyframes fadein {
- from { opacity: 0;
-   transform: translateY(40px);
- }
- to   { opacity: 1; 
-   transform: translateY(0);
- }
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
-.damgeuser.open{
- opacity: 0;
- animation: fadein 1.2s ease-in-out;
+.damgeuser.open {
+  opacity: 0;
+  animation: fadein 1.2s ease-in-out;
 }
-.damge.open{
- opacity: 0;
- animation: fadein 1.2s ease-in-out;
+.damge.open {
+  opacity: 0;
+  animation: fadein 1.2s ease-in-out;
 }
 .heart-wrap {
   border: 1px solid;
   margin-bottom: 80px;
 }
-.item img{
+.item img {
   width: 230px;
   height: 270px;
-
 }
-.item .img-monster{
+.item .img-monster {
   width: 325px;
   height: 395px;
   padding-bottom: 75px;
@@ -104,29 +103,52 @@ section {
 }
 
 .controls button {
-  color: #FFFFFF;
+  color: #ffffff;
   width: 100px;
   height: 30px;
   background: #880a17;
   margin-left: 20px;
+  border-radius: 15px;
 }
 
-.end-game{
+.end-game button,
+.end-game2 button {
+  transform: translate(-50%, -50%);
+  color: #ffffff;
+  background: #880a17;
+  padding: 10px;
+  position: absolute;
+  top: 210px;
+  left: 50%;
+  border-radius: 15px
+;
+}
+
+button:disabled {
+  background-color: #ccc;
+  border-color: #ccc;
+  box-shadow: none;
+  color: #3f3f3f;
+  cursor: not-allowed;
+}
+
+.end-game {
   position: absolute;
   top: 30%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
-.end-game img{
+.end-game img {
   width: 450px;
 }
 
-.end-game2{
+.end-game2 {
   position: absolute;
   top: 30%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
-.end-game2 img{
+
+.end-game2 img {
   width: 450px;
 }
