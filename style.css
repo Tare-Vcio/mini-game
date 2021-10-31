@@ -1,0 +1,132 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: 'Jost', sans-serif;
+}
+
+body {
+  margin: 0;
+}
+
+header {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  padding: 0.5rem;
+  background-color: #880017;
+  color: white;
+  text-align: center;
+
+}
+
+section {
+  width: 90%;
+  max-width: 40rem;
+  margin: auto;
+}
+.bg-image{
+   background-image: url(https://cdn5.f-cdn.com/contestentries/1247677/21891770/5a786ab701b3d_thumb900.jpg);
+   height: 700px;
+   position: relative;
+  }
+.container {
+  padding-top: 100px;
+  display: flex;
+  justify-content: space-around;
+
+}
+
+.item {
+  width: 300px;
+  text-align: center;
+}
+.damge{
+ position: absolute;
+ opacity: 0;
+ top: 19%;
+ right: 24%;
+ font-size: 25px;
+ color: #ff1919e0;
+ font-weight: 600;
+}
+.damgeuser{
+ position: absolute;
+ opacity: 0;
+ top: 19%;
+ left: 24%;
+ font-size: 25px;
+ color: #ff1919e0;
+ font-weight: 600;
+}
+@keyframes fadein {
+ from { opacity: 0;
+   transform: translateY(40px);
+ }
+ to   { opacity: 1; 
+   transform: translateY(0);
+ }
+}
+.damgeuser.open{
+ opacity: 0;
+ animation: fadein 1.2s ease-in-out;
+}
+.damge.open{
+ opacity: 0;
+ animation: fadein 1.2s ease-in-out;
+}
+.heart-wrap {
+  border: 1px solid;
+  margin-bottom: 80px;
+}
+.item img{
+  width: 230px;
+  height: 270px;
+
+}
+.item .img-monster{
+  width: 325px;
+  height: 395px;
+  padding-bottom: 75px;
+}
+.heart {
+  height: 36px;
+  background-color: #42ad0b;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 65%;
+  left: 47%;
+  transform: translate(-50%, -35%);
+}
+
+.controls button {
+  color: #FFFFFF;
+  width: 100px;
+  height: 30px;
+  background: #880a17;
+  margin-left: 20px;
+}
+
+.end-game{
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.end-game img{
+  width: 450px;
+}
+
+.end-game2{
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.end-game2 img{
+  width: 450px;
+}

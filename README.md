@@ -1,1 +1,1 @@
-# mini-game
+# game_project
