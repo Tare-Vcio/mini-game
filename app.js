@@ -98,8 +98,8 @@ const app = Vue.createApp({
     startGame(e){
       this.styleOverlayTop.left = '-100%';
       this.styleOverlayBottom.right = '-100%';
-      this.styleStartTop.left = '-42.09%';
-      this.styleStartBottom.right = '-42.09%';
+      this.styleStartTop.left = '-100%';
+      this.styleStartBottom.right = '-100%';
     },
   },
   computed: {
