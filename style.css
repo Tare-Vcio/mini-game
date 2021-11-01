@@ -34,6 +34,46 @@ section {
   justify-content: space-around;
 }
 
+.container {
+  padding-top: 100px;
+  display: flex;
+  justify-content: space-around;
+}
+.overlay_menu.top{
+  width: 100%;
+  top: 0;
+  bottom: 57.5%;
+  left: 0;
+  position: fixed;
+  background-color: #000;
+  z-index: 4;
+  transition: 0.3s ease-in-out;
+}
+.overlay_menu.bottom {
+  width: 100%;
+  top: 42.5%;
+  bottom: 0;
+  right: 0;
+  position: fixed;
+  background-color: #000;
+  z-index: 4;
+  transition: 0.3s ease-in-out;
+}
+.start {
+  position: fixed;
+  z-index: 5;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+.start.top{
+  top: 30.6%;
+  left: 30.09%;
+}
+.start.bottom{
+  top: 43%;
+  right: 28.16%;
+}
+
 .item {
   width: 300px;
   text-align: center;
@@ -56,6 +96,16 @@ section {
   color: #ff1919e0;
   font-weight: 600;
 }
+.more_heart {
+  position: absolute;
+  opacity: 0;
+  top: 19%;
+  left: 24%;
+  font-size: 25px;
+  color: #3cff00e0;
+  font-weight: 600;
+}
+
 @keyframes fadein {
   from {
     opacity: 0;
@@ -74,6 +124,10 @@ section {
   opacity: 0;
   animation: fadein 1.2s ease-in-out;
 }
+.more_heart.open {
+  opacity: 0;
+  animation: fadein 0.8s ease-in-out;
+}
 .heart-wrap {
   border: 1px solid;
   margin-bottom: 80px;
@@ -82,6 +136,15 @@ section {
   width: 230px;
   height: 270px;
 }
+
+.warrior-img.attack {
+  animation: fadeinLeft 0.8s ease-in-out;
+}
+
+.monster-img.attacked {
+  animation: tada 0.6s ease-in-out;
+}
+
 .item .img-monster {
   width: 325px;
   height: 395px;
@@ -151,4 +214,228 @@ button:disabled {
 
 .end-game2 img {
   width: 450px;
+}
+
+/* ------Heal------ */
+.item .bubble {
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  height: 50px;
+  position: absolute;
+  width: 50px;
+  opacity: 0;
+}
+.bubble.active{
+  opacity: 1;
+  animation: animateBubble 2s linear infinite, sideWays 2s ease-in-out;
+}
+
+.x1 {
+
+  left: 15%;
+  top: 35%;
+  transform: scale(0.5);
+
+}
+
+.x2 {
+
+  left: 25%;
+  top: 50%;
+  transform: scale(0.5);
+
+}
+
+.x3 {
+  left: 20%;
+  top: 45%;
+  transform: scale(0.5);
+
+}
+
+.x4 {
+  left: 20%;
+  top: 25%;
+  transform: scale(0.3);
+
+}
+
+.x5 {
+
+  left: 30%;
+  top: 50%;
+  transform: scale(0.6);
+
+}
+
+.x6 {
+  left: 25%;
+  top: 35%;
+  transform: scale(0.6);
+
+}
+
+.x7 {
+  left: 25%;
+  top: 50%;
+  transform: scale(0.6);
+
+}
+
+.x8 {
+  left: 30%;
+  top: 17%;
+  transform: scale(0.6);
+
+}
+
+.x9 {
+  left: 30%;
+  top: 50%;
+  transform: scale(0.6);
+
+}
+
+.x10 {
+  left: 25%;
+  top: 20%;
+  transform: scale(0.6);
+
+}
+
+/* ANIMATIONS */
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeinLeft {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(700px);
+  }
+}
+
+@keyframes fadeinRight {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-800px);
+  }
+}
+
+@keyframes tada {
+  from {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+
+  10%,
+  20% {
+    -webkit-transform: scale3d(0.9, 0.9, 0.9) rotate3d(0, 0, 1, -3deg);
+    transform: scale3d(0.9, 0.9, 0.9) rotate3d(0, 0, 1, -3deg);
+  }
+
+  30%,
+  50%,
+  70%,
+  90% {
+    -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+  }
+
+  40%,
+  60%,
+  80% {
+    -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+  }
+
+  to {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+/* ------------------------------ */
+
+@-webkit-keyframes animateBubble {
+  0% {
+    margin-top: 100px;
+    opacity: 1;
+  }
+
+  100% {
+    margin-top: -200px;
+  }
+}
+
+@-moz-keyframes animateBubble {
+  0% {
+    margin-top: 100px;
+    opacity: 1;
+  }
+
+  100% {
+    margin-top: -200px;
+    opacity: 0;
+  }
+}
+
+@keyframes animateBubble {
+  0% {
+    margin-top: 100px;
+    opacity: 1;
+  }
+
+  100% {
+    margin-top: -80px;
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes sideWays {
+  0% {
+    margin-left: 0px;
+    opacity: 1;
+  }
+
+  100% {
+    margin-left: 50px;
+  }
+}
+
+@-moz-keyframes sideWays {
+  0% {
+    margin-left: 0px;
+    opacity: 1;
+  }
+
+  100% {
+    margin-left: 50px;
+  }
+}
+
+@keyframes sideWays {
+  0% {
+    margin-left: 0px;
+    opacity: 1;
+  }
+
+  100% {
+    margin-left: 50px;
+  }
 }
