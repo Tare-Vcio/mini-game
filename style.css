@@ -64,14 +64,15 @@ section {
   z-index: 5;
   cursor: pointer;
   transition: 0.3s ease-in-out;
+  transform: translate(50%,0);
 }
-.start.top{
-  top: 30.6%;
-  left: 30.09%;
+.start.top {
+  top: 37.6%;
+  right: 50%;
 }
 .start.bottom{
-  top: 43%;
-  right: 28.16%;
+  top: 50%;
+  right: 50%;
 }
 
 .item {
