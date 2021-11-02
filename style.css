@@ -173,6 +173,7 @@ section {
   background: #880a17;
   margin-left: 20px;
   border-radius: 15px;
+  cursor: pointer;
 }
 
 .end-game button,
@@ -439,4 +440,29 @@ button:disabled {
   100% {
     margin-left: 50px;
   }
+}
+/* Button easy and hard */
+
+.btn {
+  position: fixed;
+  display: flex;
+  z-index: 5;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+  transform: translate(50%,0);
+  padding: 15px 30px;
+  border-radius: 50px;
+  color: whitesmoke;
+  background-color: pink;
+}
+
+.btn.easy {
+  bottom: 30%;
+  left: 40%;
+  margin-right: 10px;
+}
+
+.btn.hard {
+  bottom: 30%;
+  right: 45%;
 }

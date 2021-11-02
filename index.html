@@ -16,13 +16,16 @@
   </header>
   <div id="app">
     <div class="bg-image">
-      <div >
+      <div class="btn-start">
         <div class="overlay_menu top" :style="styleOverlayTop"></div>
         <div class="overlay_menu bottom" :style="styleOverlayBottom"></div>
         <img class="start top" @click="startGame" :style="styleStartTop" src="images/top_Start.png" alt="">
         <img class="start bottom" @click="startGame" :style=" styleStartBottom"  src="images/bottom_Start.png" alt="">
       </div>
-
+      <div class="level">
+        <button class="btn easy" @click="chooseEasy" :style="styleStartTop">Easy</button>
+        <button class="btn hard" @click="chooseHard" :style="styleStartBottom">Hard</button>
+      </div>
       <div class="container">
         <div class="item" id="user">
           <p class="damgeuser" :class="{'open': animate}"> -{{monsterDamage}}</p>

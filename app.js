@@ -17,17 +17,18 @@ const app = Vue.createApp({
       isAttack: false, // animate cho User
       isAttacked: false, // animate cho Quai Vat
       isActiveBubble: false, // animate Heal
+      isStart: "", // bat dau cho null
       styleStartTop: {
-        left: '',
+        left: "",
       },
       styleOverlayTop: {
-        left: '',
+        left: "",
       },
       styleStartBottom: {
-        right: '',
+        right: "",
       },
       styleOverlayBottom: {
-        right: '',
+        right: "",
       },
     };
   },
@@ -52,8 +53,12 @@ const app = Vue.createApp({
       }, 600);
     },
     monsterAttack() {
-      this.monsterDamage = getRandomValue(10, 20);
-      console.log("monster: " + this.monsterDamage);
+      if (this.isStart === "easy") {
+        this.monsterDamage = getRandomValue(10, 20);
+        console.log("monster: " + this.monsterDamage);
+      } else {
+        this.monsterDamage = getRandomValue(12, 23);
+      }
       this.animate = true;
       this.userHeart -= this.monsterDamage;
       this.isFighting = false;
@@ -62,12 +67,12 @@ const app = Vue.createApp({
     },
     userBuff() {
       this.round++;
-      this.healHeart = getRandomValue(15,25);
-      this.isActiveBubble = true;  //Bat animation Heal
+      this.healHeart = getRandomValue(15, 25);
+      this.isActiveBubble = true; //Bat animation Heal
       setTimeout(() => {
         this.isActiveBubble = false;
-      },1000); //Tat animation Heal
-      if(this.userHeart + this.healHeart > 100) {
+      }, 500); //Tat animation Heal
+      if (this.userHeart + this.healHeart > 100) {
         this.userHeart = 100;
       } else {
         setTimeout(() => {
@@ -79,7 +84,7 @@ const app = Vue.createApp({
       setTimeout(() => {
         this.monsterAttack();
         this.healAnimate = true;
-      }, 200);
+      }, 1000);
     },
     specialAttackMonster() {
       this.round++;
@@ -95,11 +100,23 @@ const app = Vue.createApp({
     surrender() {
       this.userHeart = 0;
     },
-    startGame(e){
-      this.styleOverlayTop.left = '-100%';
-      this.styleOverlayBottom.right = '-100%';
-      this.styleStartTop.left = '-100%';
-      this.styleStartBottom.right = '-100%';
+    chooseEasy() {
+      this.isStart = "easy";
+      console.log(this.isStart);
+    },
+    chooseHard() {
+      this.isStart = "hard";
+      console.log(this.isStart);
+    },
+    startGame(e) {
+      if (this.isStart === "easy" || this.isStart === "hard") {
+        this.styleOverlayTop.left = "-100%";
+        this.styleOverlayBottom.right = "-100%";
+        this.styleStartTop.left = "-100%";
+        this.styleStartBottom.right = "-100%";
+      } else {
+        alert("Vui lòng chọn cấp độ easy or hard");
+      }
     },
   },
   computed: {
