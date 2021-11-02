@@ -107,6 +107,51 @@ section {
   font-weight: 600;
 }
 
+#monster{
+  position: relative;
+}
+#user{
+  position: relative;
+}
+.monster-img.active {
+  animation: monsterMove 0.3s;
+}
+.warrior-img.damged{
+  animation: blinkblink 0.7s linear infinite, fadeUp 0.7s linear infinite;
+}
+.item .fire_ball{
+  opacity: 0;
+}
+.item .fire_ball.open{
+  animation: fadeinRightBall 1.5s;
+}
+
+.item .sword{
+  width: 50px;
+  height: 30px;
+  position: absolute;
+  top: 52%;
+  right: 20px;
+  opacity: 0;
+}
+.item .sword.bigUp{
+  right: -40px;
+  opacity: 1;
+  transform: scale(4.7);
+  transition: 0.5s ease-in-out;
+}
+.item .sword.bigUp.active{
+ animation: fadeinLeft2 1s ease-in-out;
+ animation-delay: 1s;
+}
+
+.item .fire_ball {
+  width: 60px;
+  height: 60px;
+  position: absolute;
+  top: 40%;
+  left: 0;
+}
 @keyframes fadein {
   from {
     opacity: 0;
@@ -369,6 +414,103 @@ button:disabled {
   to {
     -webkit-transform: scale3d(1, 1, 1);
     transform: scale3d(1, 1, 1);
+  }
+}
+
+
+/* ------------------------------ */
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeinLeft {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(700px);
+  }
+}
+@keyframes bigger{
+  from{
+    opacity: 0;
+    transform: scale(0);
+  }
+  to{
+    opacity: 1;
+    transform: scale(4.7);
+  }
+}
+
+@keyframes fadeinRightBall {
+  0% {
+    transform: translateX(-20px);
+    opacity: 1;
+  }
+  10%, 
+  20%,
+  30%,
+  40%, 
+  50%{
+    transform: scale(1.5) translateX(-150px);
+    opacity: 1;
+  }
+  100%{
+    transform:scale(2.5) translateX(-250px);
+    opacity: 1;
+  }
+}
+@keyframes fadeUp{
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translate(-20px,-10px);
+  }
+}
+@keyframes blinkblink{
+  0% {
+    opacity: 0.2;
+  }
+  20% {
+    opacity: 0.8;
+  }
+  40% {
+    opacity: 0.2;
+  }
+  60% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fadeinRight {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-650px);
+  }
+}
+@keyframes monsterMove{
+  from{
+    transform: translateX(50px);
+  }
+  to{
+    transform: translateX(0);
   }
 }
 

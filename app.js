@@ -18,6 +18,11 @@ const app = Vue.createApp({
       isAttack: false, // animate cho User
       isAttacked: false, // animate cho Quai Vat
       isActiveBubble: false, // animate Heal
+      isBigger: false, // animate Kiem xuat hien
+      isSlide: false, // animate Kiem bay
+      isAppear: false, // animate Fire-Ball xuat hien
+      isFire: false, // Quai vat khac lua
+      isUserDameged: false, // kich hoat hinh anh nguoi trung skill
       isStart: "", // bat dau cho null
       styleStartTop: {
         left: "",
@@ -105,10 +110,30 @@ const app = Vue.createApp({
       this.monsterHeart -= this.userDamage;
       console.log("user: " + this.userDamage);
       this.monsterAnimate = true;
+      this.specialAttackAnimationForUser();
+
       setTimeout(() => {
         this.monsterAttack();
+        setTimeout(() => {this.specialAttackAnimationForMonster();},1000);
       }, 1300);
     },
+
+    specialAttackAnimationForUser(){
+      this.isBigger = true;
+      setTimeout(() => {this.isBigger = false},2000)
+      setTimeout(() => {this.isAttack = true},900)
+      setTimeout(() => {this.isAttack = false},2000)
+      this.isSlide = true;
+    },
+    specialAttackAnimationForMonster(){
+      this.isAppear = true;
+      setTimeout(() => {this.isFire = true}, 50)
+      setTimeout(() => {this.isFire = false}, 350)
+      setTimeout(() => {this.isAppear = false}, 1800)     
+      setTimeout(() => {this.isUserDameged = true},1500)
+      setTimeout(() => {this.isUserDameged = false},2200)
+    },
+    
 
     // đầu hàng vô điều kiện
     surrender() {
