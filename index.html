@@ -28,7 +28,7 @@
       </div>
       <div class="container">
         <div class="item" id="user">
-          <p class="damgeuser" :class="{'open': animate}"> -{{monsterDamage}}</p>
+          <p class="damgeuser" :class="{'open': userAnimate}"> -{{monsterDamage}}</p>
           <p class="more_heart" :class="{'open': healAnimate}" > +{{healHeart}}</p>
           <div class="heart-wrap">
             <div :style="{width: userHeart + '%'}" class="heart"></div>
@@ -37,7 +37,7 @@
           <img class="bubble" v-for="n in 10" src="images/health-icon-removebg-preview.png" :class="[{active: isActiveBubble},`x${n}`]" alt="">
         </div>
         <div class="item" id="monster">
-          <p class="damge" :class="{'open': animate}">-{{userDamage}}</p>
+          <p class="damge" :class="{'open': monsterAnimate}">-{{userDamage}}</p>
           <div class="heart-wrap">
             <div :style="{width: monsterHeart + '%'}" class="heart"></div>
           </div>

@@ -13,7 +13,8 @@ const app = Vue.createApp({
       round: 0,
       healAnimate: false,
       isFighting: false,
-      animate: false,
+      userAnimate: false,
+      monserAnimate: false,
       isAttack: false, // animate cho User
       isAttacked: false, // animate cho Quai Vat
       isActiveBubble: false, // animate Heal
@@ -45,12 +46,14 @@ const app = Vue.createApp({
       this.userDamage = getRandomValue(5, 10);
       this.monsterHeart -= this.userDamage;
       console.log("user: " + this.userDamage);
+      this.monsterAnimate = true;
+      console.log(this.monsterAnimate);
       this.isAttack = true; // nhan vat tan cong
       this.isAttacked = false; // trang thai quai vat bi. tan cong
-      this.animate = false;
       setTimeout(() => {
         this.monsterAttack();
-      }, 600);
+        this.monsterAnimate = false;
+      }, 1300);
     },
     monsterAttack() {
       if (this.isStart === "easy") {
@@ -59,11 +62,15 @@ const app = Vue.createApp({
       } else {
         this.monsterDamage = getRandomValue(12, 23);
       }
-      this.animate = true;
       this.userHeart -= this.monsterDamage;
+      this.userAnimate = true;
+      console.log(this.userAnimate);
       this.isFighting = false;
       this.isAttack = false; // nhan vat tan cong
       this.isAttacked = true; // trang thai quai vat bi. tan cong
+      setTimeout(() => {
+        this.userAnimate = false;
+      }, 1300);
     },
     userBuff() {
       this.round++;
@@ -71,7 +78,7 @@ const app = Vue.createApp({
       this.isActiveBubble = true; //Bat animation Heal
       setTimeout(() => {
         this.isActiveBubble = false;
-      }, 500); //Tat animation Heal
+      }, 1300); //Tat animation Heal
       if (this.userHeart + this.healHeart > 100) {
         this.userHeart = 100;
       } else {
@@ -80,10 +87,10 @@ const app = Vue.createApp({
           console.log("heal: " + this.healHeart);
         }, 500);
       }
-      this.healAnimate = false;
+      this.healAnimate = true;
       setTimeout(() => {
         this.monsterAttack();
-        this.healAnimate = true;
+        this.healAnimate = false;
       }, 1000);
     },
     specialAttackMonster() {
@@ -92,10 +99,10 @@ const app = Vue.createApp({
       this.userDamage = getRandomValue(15, 30);
       this.monsterHeart -= this.userDamage;
       console.log("user: " + this.userDamage);
-      this.animate = false;
+      this.monsterAnimate = true;
       setTimeout(() => {
         this.monsterAttack();
-      }, 200);
+      }, 1300);
     },
     surrender() {
       this.userHeart = 0;
