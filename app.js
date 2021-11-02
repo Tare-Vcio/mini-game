@@ -35,11 +35,10 @@ const app = Vue.createApp({
   },
   methods: {
     startNewGame() {
-      this.userHeart = 100;
-      this.monsterHeart = 100;
-      this.winner = null;
-      this.round = 0;
+      location.reload(); // load lai trang
     },
+
+    //Hero tấn công
     userAttack() {
       this.round++;
       this.isFighting = true;
@@ -55,6 +54,8 @@ const app = Vue.createApp({
         this.monsterAnimate = false;
       }, 1300);
     },
+
+    //Quais vật tấn công
     monsterAttack() {
       if (this.isStart === "easy") {
         this.monsterDamage = getRandomValue(10, 20);
@@ -72,6 +73,8 @@ const app = Vue.createApp({
         this.userAnimate = false;
       }, 1300);
     },
+
+    //Buff hồi máu
     userBuff() {
       this.round++;
       this.healHeart = getRandomValue(15, 25);
@@ -93,6 +96,8 @@ const app = Vue.createApp({
         this.healAnimate = false;
       }, 1000);
     },
+
+    // kĩ năng đăc biệt đánh rồng
     specialAttackMonster() {
       this.round++;
       this.isFighting = true;
@@ -104,17 +109,25 @@ const app = Vue.createApp({
         this.monsterAttack();
       }, 1300);
     },
+
+    // đầu hàng vô điều kiện
     surrender() {
       this.userHeart = 0;
     },
+
+    //chọn chế độ easy
     chooseEasy() {
       this.isStart = "easy";
       console.log(this.isStart);
     },
+
+    //chọn chế độ hard
     chooseHard() {
       this.isStart = "hard";
       console.log(this.isStart);
     },
+
+    //bắt đầu game chọn chế độ
     startGame(e) {
       if (this.isStart === "easy" || this.isStart === "hard") {
         this.styleOverlayTop.left = "-100%";
@@ -127,12 +140,17 @@ const app = Vue.createApp({
     },
   },
   computed: {
+    // điều kiện để buff máu phải trên vòng 1
     canUseBuff() {
       return this.round < 1;
     },
+
+    // điều kiện dùng speacil skill 3 round mới xử dụng lại được
     canUseSpecialAttack() {
       return this.round % 3 !== 0;
     },
+
+    //win
     headleEnd1() {
       if (this.monsterHeart <= 0) {
         this.monsterHeart = 0;
@@ -140,6 +158,8 @@ const app = Vue.createApp({
       }
       return false;
     },
+
+    //lost
     headleEnd2() {
       if (this.userHeart <= 0) {
         this.userHeart = 0;
@@ -147,6 +167,8 @@ const app = Vue.createApp({
       }
       return false;
     },
+
+    // xử lý trong lúc đánh
     handlebtn() {
       if (this.userHeart <= 0 || this.monsterHeart <= 0) {
         return false;
