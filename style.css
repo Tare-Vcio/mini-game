@@ -116,6 +116,9 @@ section {
 .monster-img.active {
   animation: monsterMove 0.3s;
 }
+.monster-img.active {
+  animation: monsterMove 0.6s ease-in-out;
+}
 .warrior-img.damged{
   animation: blinkblink 0.7s linear infinite, fadeUp 0.7s linear infinite;
 }
@@ -363,7 +366,25 @@ button:disabled {
     transform: translateY(0);
   }
 }
+@keyframes fadeinLeft2 {
+  from {
+    transform: scale(4.7) translateX(0);
+  }
 
+  to {
+    transform:scale(4.7) translateX(600px);
+  }
+}
+
+@keyframes fadeinRight {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-800px);
+  }
+}
 @keyframes fadeinLeft {
   from {
     transform: translateX(0);

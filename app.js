@@ -57,7 +57,7 @@ const app = Vue.createApp({
       setTimeout(() => {
         this.monsterAttack();
         this.monsterAnimate = false;
-      }, 1300);
+      }, 700);
     },
 
     //Quais vật tấn công
@@ -82,6 +82,7 @@ const app = Vue.createApp({
     //Buff hồi máu
     userBuff() {
       this.round++;
+      this.isFighting = true;
       this.healHeart = getRandomValue(15, 25);
       this.isActiveBubble = true; //Bat animation Heal
       setTimeout(() => {
@@ -109,9 +110,8 @@ const app = Vue.createApp({
       this.userDamage = getRandomValue(15, 30);
       this.monsterHeart -= this.userDamage;
       console.log("user: " + this.userDamage);
-      this.monsterAnimate = true;
       this.specialAttackAnimationForUser();
-
+      setTimeout(() => {this.monsterAnimate = true;},1000)
       setTimeout(() => {
         this.monsterAttack();
         setTimeout(() => {this.specialAttackAnimationForMonster();},1000);

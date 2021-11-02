@@ -33,7 +33,7 @@
           <div class="heart-wrap">
             <div :style="{width: userHeart + '%'}" class="heart"></div>
           </div>
-          <img src="./images/user-01.png" class="warrior-img" :class="{attack: isAttack}" alt="">
+          <img src="./images/user-01.png" class="warrior-img" :class="{attack: isAttack, damged: isUserDameged }" alt="">
           <img class="bubble" v-for="n in 10" src="images/health-icon-removebg-preview.png" :class="[{active: isActiveBubble},`x${n}`]" alt="">
           <img src="./images/kiem-01.png" class="sword" :class="{'bigUp': isBigger, 'active': isSlide}" alt="">
         </div>
